@@ -76,14 +76,3 @@ typings/
 .fusebox/
 .timetracker
 
-# media 
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.svg
-*.wav
-*.mp3
-*.avi
-*.mp4
-*.webm
