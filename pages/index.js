@@ -3,10 +3,10 @@ function HomePage() {
     <>
       <div className="site-container">
         <div className="space-y-4">
-          <div className="max-w-4xl mx-auto mt-20">
+          <h1 className="text-2xl font-bold">Hey 👋🏻 I'm Ege.</h1>
+          <div className="site-4xl-container mt-20">
             <img src="/img/laptop.png" alt="" />
           </div>
-          <h1 className="text-2xl font-bold">Hey 👋🏻 I'm Ege.</h1>
           <p>I am a software developer based in İstanbul.</p>
 
           <p>
