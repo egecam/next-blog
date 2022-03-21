@@ -10,7 +10,7 @@
     @apply px-2 py-1;
   }
   .link-hover {
-    @apply hover:bg-yellow-200 hover:border-yellow-500 rounded-md transition-all ;
+    @apply hover:bg-yellow-200 rounded transition-all ;
   }
   .site-4xl-container {
     @apply max-w-4xl mx-auto
