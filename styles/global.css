@@ -6,6 +6,9 @@
   .site-container {
     @apply max-w-2xl mx-auto px-6;
   }
+  .link {
+    @apply px-2 py-1;
+  }
   .link-hover {
     @apply hover:bg-yellow-200 hover:border-yellow-500 rounded-md transition-all ;
   }
