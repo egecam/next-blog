@@ -39,4 +39,16 @@ export default async function handler(req, res) {
     redis.quit();
     res.status(200).json(comment);
   }
+
+  // FETCH
+  if (req.method === "GET") {
+
+    let redis = new Redis(process.env.REDIS_URL);
+    const comments = await redis.lrange('http://localhost:3000/blog/deneme-yazisi', 0 ,-1)
+    redis.quit();
+
+    const data = comments.map((o) => JSON.parse(o))
+
+    res.status(200).json(data);
   }
+}
