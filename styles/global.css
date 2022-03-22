@@ -15,4 +15,11 @@
   .site-4xl-container {
     @apply max-w-4xl mx-auto
   }
+  .wide-img {
+    @apply h-60 object-cover  sm:h-52 sm:col-span-2 lg:col-span-full;
+  }
+  .tight-img {
+    @apply w-full h-52 object-cover sm:block sm:col-span-2 sm:h-full md:col-span-1 lg:row-start-2 lg:col-span-2 lg:h-full;
+  }
 }
+
