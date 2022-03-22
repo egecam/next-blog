@@ -1,4 +1,6 @@
 import { nanoid } from "nanoid";
+import Redis from "ioredis";
+
 export default async function handler(req, res) {
   // CREATE
   if (req.method === 'POST') {
@@ -31,4 +33,10 @@ export default async function handler(req, res) {
         }
       }
 
+    // redis
+    let redis = new Redis(process.env.REDIS_URL);
+    redis.lpush(url, JSON.stringify(comment));
+    redis.quit();
+    res.status(200).json(comment);
+  }
   }
