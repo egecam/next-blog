@@ -20,7 +20,7 @@ export default function Form({onSubmit, text, textSet}) {
       <div className="mt-4">
         {isAuthenticated ? (
           <div className="flex items-center space-x-2">
-            <button className="bg-yellow-500 hover:bg-yellow-400 transition-all text-white px-2 py-1 rounded">
+            <button className="border-2 border-yellow-400 bg-transparent hover:bg-yellow-400 hover:text-white transition-all text-yellow-500 px-2 py-1 rounded">
               Send
             </button>
             <img src={user.picture} width={30} className="rounded-full" />
@@ -36,7 +36,7 @@ export default function Form({onSubmit, text, textSet}) {
           </div>
         ) : (
           <button
-            className="bg-yellow-500 hover:bg-yellow-400 transition-all text-white px-2 py-1 rounded"
+            className="border-2 border-yellow-400 bg-transparent hover:bg-yellow-400 hover:text-white transition-all text-yellow-500 px-2 py-1 rounded"
             typeof="button"
             onClick={() => loginWithRedirect()}
           >
