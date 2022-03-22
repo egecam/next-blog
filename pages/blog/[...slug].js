@@ -2,13 +2,37 @@ import { getMdxNode, getMdxPaths } from "next-mdx/server";
 import { useHydrate } from "next-mdx/client";
 import { mdxComponents } from "../../components/mdx-component";
 import { useAuth0 } from "@auth0/auth0-react";
+import {useEffect, useState} from "react";
 
 export default function PostPage({ post }) {
-  const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
+  const { loginWithRedirect, isAuthenticated, user, logout, getAccessTokenSilently } = useAuth0();
+  const [text, textSet] = useState("")
+  const [url, urlSet] = useState(null)
+
+  useEffect(() => {
+    const url = window.location.origin + window.location.pathname
+    urlSet(url)
+  }, [])
 
   const content = useHydrate(post, {
     components: mdxComponents,
   });
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    const userToken = await getAccessTokenSilently();
+    // text, user, url
+    const response = await fetch("/api/comment", {
+      method: "POST",
+      body: JSON.stringify({ text, userToken, url }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    const data = await response.json();
+    console.log(data);
+  };
 
   return (
     <div className="site-container">
@@ -19,13 +43,19 @@ export default function PostPage({ post }) {
         <div className="prose">{content}</div>
       </article>
 
-      <form className="mt-10">
-        <textarea rows="3" className="border border-gray-300 rounded-l w-full block px-2 py-1"></textarea>
+      <form className="mt-10" onSubmit={onSubmit}>
+        <textarea
+          rows="3"
+          className="border border-gray-300 rounded-l w-full block px-2 py-1"
+          onChange={(e)=> textSet(e.target.value)}
+        ></textarea>
 
         <div className="mt-4">
           {isAuthenticated ? (
             <div className="flex items-center space-x-2">
-            <button className="bg-yellow-500 hover:bg-yellow-400 transition-all text-white px-2 py-1 rounded">Send</button>
+              <button className="bg-yellow-500 hover:bg-yellow-400 transition-all text-white px-2 py-1 rounded">
+                Send
+              </button>
               <img src={user.picture} width={30} className="rounded-full" />
               <span>{user.name}</span>
               <button
@@ -38,9 +68,13 @@ export default function PostPage({ post }) {
               </button>
             </div>
           ) : (
-              <button className="bg-yellow-500 hover:bg-yellow-400 transition-all text-white px-2 py-1 rounded" typeof="button" onClick={() => loginWithRedirect()}>
-                Login
-              </button>
+            <button
+              className="bg-yellow-500 hover:bg-yellow-400 transition-all text-white px-2 py-1 rounded"
+              typeof="button"
+              onClick={() => loginWithRedirect()}
+            >
+              Login
+            </button>
           )}
         </div>
       </form>
