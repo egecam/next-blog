@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
     <Auth0Provider
       domain={process.env.NEXT_PUBLIC_AUTH0_DOMAIN}
       clientId={process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID}
-      redirectUri={process.env.NEXT_PUBLIC_URI}
+      redirectUri={process.env.NEXT_PUBLIC_URL}
     >
       <div className="antialiased text-gray-700">
         <Header />
