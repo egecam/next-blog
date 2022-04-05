@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Header() {
   return (
     <header className="site-container py-6">
-      <nav className="space-x-8">
+      <nav className="space-x-6">
         <Link href="/">
           <a className="link-hover link">About</a>
         </Link>
