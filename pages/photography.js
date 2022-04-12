@@ -8,6 +8,8 @@ function PhotoPage() {
       </Head>
       <div className="site-container">
         <div className="grid gap-4 col-start-1 col-end-3 row-start-1 sm:mb-6 sm:grid-cols-4 lg:gap-6 lg:col-start-2 lg:row-end-6 lg:row-span-6 lg:mb-0">
+          Work in progress
+          {/*
           <img
             src="/photography/betrayal.jpg"
             alt=""
@@ -25,7 +27,7 @@ function PhotoPage() {
             alt=""
             className="tight-img"
             title=""
-          />
+          />*/}
         </div>
       </div>
     </>
