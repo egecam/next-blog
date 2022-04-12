@@ -4,6 +4,7 @@ import { mdxComponents } from "../../components/mdx-component";
 import Form from "../../components/form";
 import Comments from "../../components/comments";
 import useComment from "../../hooks/useComment";
+import Head from "next/head";
 
 export default function PostPage({ post }) {
   const [comments, onSubmit, text, textSet] = useComment();
@@ -13,6 +14,10 @@ export default function PostPage({ post }) {
   });
 
   return (
+    <>
+<Head>
+  <title>{post.frontMatter.title} - Ege Çam</title>
+</Head>
     <div className="site-container">
       <article>
         <h1 className="text-4xl font-bold">{post.frontMatter.title}</h1>
@@ -25,6 +30,7 @@ export default function PostPage({ post }) {
 
       <Comments comments={comments} />
     </div>
+    </>
   );
 }
 

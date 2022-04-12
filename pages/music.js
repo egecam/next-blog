@@ -1,3 +1,4 @@
+import Head from "next/head";
 import NextImage from "next/image";
 import Link from "next/link";
 import { BsArrowUpRight } from "react-icons/bs";
@@ -5,6 +6,9 @@ import { BsArrowUpRight } from "react-icons/bs";
 function MusicPage() {
   return (
     <>
+      <Head>
+        <title>Music - Ege Çam</title>
+      </Head>
       <div className="site-container mt-10">
         <div className="space-y-8">
           <h1 className="text-2xl font-bold">The Piano</h1>
