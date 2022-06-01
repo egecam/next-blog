@@ -102,7 +102,7 @@ function MusicPage() {
                 this <BsArrowUpRight className="inline-flex" />
               </a>
             </Link>
-            piece from Toys Story of Pixar.
+            piece from Toy Story of Pixar.
           </p>
         </div>
       </div>
